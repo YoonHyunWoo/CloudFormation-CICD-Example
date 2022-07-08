@@ -5,5 +5,5 @@ phases:
     commands:
       - aws configure set default.region ap-northeast-2
       - CFT=$(cat CloudFormationTest.yaml)
-      - aws cloudformation create-change-set  --stack-name yhwStack --template-body "$CFT"
+      - aws cloudformation create-change-set --stack-name yhwStack --template-body "$CFT" --change-set-name yhwStackChangeSet
       
