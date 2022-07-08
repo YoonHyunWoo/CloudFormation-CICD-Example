@@ -1,9 +1,13 @@
 version: 0.2
 
 phases:
-  build:
+  pre_build:
     commands:
       - aws configure set default.region ap-northeast-2
+      - aws cloudformation delete-change-set --change-set-name yhwStackChangeSet
+
+  build:
+    commands:
       - CFT=$(cat CloudFormationTest.yaml)
       - aws cloudformation create-change-set --stack-name yhwStack --template-body "$CFT" --change-set-name yhwStackChangeSet
       
