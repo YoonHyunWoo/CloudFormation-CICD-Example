@@ -4,9 +4,9 @@ phases:
   pre_build:
     commands:
         - aws configure set default.region ap-northeast-2
-        - aws delete-stack --stack-name yhwStack
+        - aws cloudformation cloudformationdelete-stack --stack-name yhwStack
 
   build:
     commands:
-      - create-stack --template-body $(cat CloudFormationTest.yaml) --stack-name yhwStack
+      - aws cloudformation create-stack --template-body $(cat CloudFormationTest.yaml) --stack-name yhwStack
       
