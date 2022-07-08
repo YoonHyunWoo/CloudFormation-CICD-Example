@@ -1,13 +1,9 @@
 version: 0.2
 
 phases:
-  pre_build:
-    commands:
-        - aws configure set default.region ap-northeast-2
-        - aws cloudformation delete-stack --stack-name yhwStack
-
   build:
     commands:
+      - aws configure set default.region ap-northeast-2
       - CFT=$(cat CloudFormationTest.yaml)
-      - aws cloudformation create-stack --template-body "$CFT" --stack-name yhwStack
+      - aws cloudformation create-change-set  --stack-name yhwStack --template-body "$CFT"
       
