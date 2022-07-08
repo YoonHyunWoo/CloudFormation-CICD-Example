@@ -8,5 +8,6 @@ phases:
 
   build:
     commands:
-      - aws cloudformation create-stack --template-body $(cat CloudFormationTest.yaml) --stack-name yhwStack
+      - CFT=$(cat CloudFormationTest.yaml)
+      - aws cloudformation create-stack --template-body "$CFT" --stack-name yhwStack
       
