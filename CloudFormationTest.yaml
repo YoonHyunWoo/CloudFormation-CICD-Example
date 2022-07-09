@@ -14,8 +14,7 @@ Resources:
       Tags:
         - Key: Name
           Value: IU
-      UserData: 
-        Fn::Base64: |
+      UserData: |
           #!/bin/bash
           sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config 
           systemctl restart sshd
