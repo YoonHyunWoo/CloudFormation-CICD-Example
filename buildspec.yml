@@ -8,6 +8,6 @@ phases:
 
   build:
     commands:
-      - aws cloudformation deploy --no-fail-on-empty-changeset --stack-name yhwStack --template-file CloudFormation.yaml
+      - aws cloudformation deploy --no-fail-on-empty-changeset --stack-name yhwStack --template-file CloudFormationTest.yaml
     
       
