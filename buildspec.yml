@@ -4,7 +4,6 @@ phases:
   pre_build:
     commands:
       - aws configure set default.region ap-northeast-2
-      - aws cloudformation delete-change-set --stack-name yhwStack --change-set-name yhwStackChangeSet
 
   build:
     commands:
