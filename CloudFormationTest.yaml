@@ -32,7 +32,7 @@ Resources:
       #     systemctl start httpd
       #     echo 'Successd'
       
-WebServerSecurityGroup:
+  WebServerSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
       GroupDescription: 'Test'
