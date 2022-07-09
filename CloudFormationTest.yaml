@@ -7,10 +7,18 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Metadata:
       AWS::CloudFormation::Init:
-        config:
+        configsets:
+          install:
+            - config1
+          start:
+            - config2
+
+        config1:
           packages:
             yum: 
               httpd: []
+          
+        config2:
           command: "systemctl rstart httpd"
 
     Properties:
