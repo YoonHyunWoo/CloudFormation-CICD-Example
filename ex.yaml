@@ -1,0 +1,4 @@
+      - aws cloudformation delete-change-set --stack-name yhwStack --change-set-name yhwStackChangeSet
+      - CFT=$(cat CloudFormationTest.yaml)
+      - aws cloudformation create-change-set --stack-name yhwStack --template-body "$CFT" --change-set-name yhwStackChangeSet
+      - aws cloudformation execute-change-set --stack-name yhwStack --change-set-name yhwStackChangeSet
