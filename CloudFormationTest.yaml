@@ -23,8 +23,28 @@ Resources:
           yum -y install httpd
           systemctl start httpd
           echo 'Successd'
-      
 
+  WebServerInstanceTwo:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: 'ami-0fd0765afb77bcca7'
+      InstanceType: 't3.small'
+      SecurityGroupIds: 
+        - !Ref WebServerSecurityGroup
+      KeyName: yhw-key
+      Tags:
+        - Key: Name
+          Value: IU
+      UserData: 
+        Fn::Base64: |
+          #!/bin/bash
+          sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config 
+          systemctl restart sshd
+          echo 'password' | passwd --stdin ec2-user
+          yum -y install httpd
+          systemctl start httpd
+          echo 'Successd'
+      
   WebServerSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
