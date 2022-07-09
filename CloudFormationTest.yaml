@@ -7,7 +7,7 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       ImageId: 'ami-0fd0765afb77bcca7'
-      InstanceType: 't2.micro'
+      InstanceType: 't3.small'
       SecurityGroupIds: 
         - !Ref WebServerSecurityGroup
       KeyName: yhw-key
