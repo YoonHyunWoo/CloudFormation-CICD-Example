@@ -7,12 +7,12 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Metadata:
       AWS::CloudFormation::Init:
-        configSets:
-          ascending:
-            - "config1"
-        config1:
-          commands: "yum -y install httpd"
-              
+        config:
+          packages:
+            yum: 
+              httpd: []
+          command: "systemctl rstart httpd"
+
     Properties:
       ImageId: 'ami-0fd0765afb77bcca7'
       InstanceType: 't3.small'
