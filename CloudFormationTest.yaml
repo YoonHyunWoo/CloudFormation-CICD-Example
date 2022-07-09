@@ -10,13 +10,9 @@ Resources:
         configSets:
           ascending:
             - "config1"
-          descending:
-            - "config1"
         config1:
-          commands:
-            test:
-              command: "yum -y install httpd"
-
+          commands: "yum -y install httpd"
+              
     Properties:
       ImageId: 'ami-0fd0765afb77bcca7'
       InstanceType: 't3.small'
@@ -36,7 +32,6 @@ Resources:
       #     systemctl start httpd
       #     echo 'Successd'
       
-
 WebServerSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
