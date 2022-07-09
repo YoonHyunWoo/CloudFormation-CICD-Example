@@ -9,15 +9,13 @@ Resources:
       AWS::CloudFormation::Init:
         configsets:
           install:
-            - config1
+            - "config1"
           start:
-            - config2
+            - "config2"
 
         config1:
-          packages:
-            yum: 
-              httpd: []
-          
+          command: "yum -y install httpd"
+
         config2:
           command: "systemctl rstart httpd"
 
